@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+:root {
+  /* Xenon White & Orange Theme */
+  --background: #ffffff;
+  
+  --text-primary: #0f172a; /* Slate 900 */
+  --text-secondary: #64748b; /* Slate 500 */
+
+  /* Safety Orange (Active/Action) */
+  --orange-500: #FF6F3C;
+  --orange-600: #e65100;
+
+  /* Indigo (Deep Contrast) */
+  --indigo-900: #1e1b4b;
+}
+
+@layer utilities {
+  .text-gradient-orange {
+    background: linear-gradient(to right, #FF6F3C, #ff9e00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .shadow-orange-glow {
+    box-shadow: 0 4px 14px 0 rgba(255, 111, 60, 0.39);
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+}
