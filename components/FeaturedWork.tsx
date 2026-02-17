@@ -16,18 +16,18 @@ export function FeaturedWork() {
     },
     {
       title: "AgriSmart",
-      category: "Agri-Tech Platform",
-      desc: "A digital marketplace connecting local farmers with bulk buyers. Features real-time pricing, stock management, and SMS notifications to bridge the digital divide in rural agriculture.",
-      link: "https://agrismart.mw",
+      category: "Intelligent Agri-Tech",
+      desc: "An AI-powered diagnostic platform helping farmers identify crop diseases and pests. Features ML-driven yield prediction and localized weather forecasting to optimize agricultural productivity.",
+      link: "https://crop-advisory-delta.vercel.app/",
       color: "bg-emerald-500",
       image: "/projects/agrismart.png",
-      stack: ["Laravel", "Vue.js", "MySQL", "AfricasTalking API"]
+      stack: ["Next.js", "FastAPI", "Python", "Render", "Vercel"]
     },
     {
       title: "Stand For Children",
-      category: "Non-Profit Organization",
-      desc: "A headless WordPress implementation for a global NGO. Decoupled architecture delivers superior performance and security while maintaining an easy-to-use content management experience for staff.",
-      link: "https://standforchildren.org",
+      category: "Full-Stack Personal Project",
+      desc: "A headless WordPress implementation reflecting high-performance decoupled architecture. Engineered to demonstrate complex data fetching with GraphQL and modern UI patterns in a personal project context.",
+      link: "https://save-the-children-pied.vercel.app/",
       color: "bg-red-500",
       image: "/projects/standforchildren.png",
       stack: ["Next.js", "WordPress / GraphQL", "Vercel", "Tailwind"]
