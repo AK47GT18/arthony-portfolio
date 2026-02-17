@@ -24,7 +24,7 @@ export function Navbar() {
           <div className="w-10 h-10 bg-[#FF6F3C] rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-orange-500/20 group-hover:scale-110 transition-transform duration-300">
             A
           </div>
-          <span className="text-xl font-bold font-mono tracking-tighter text-slate-900 hidden sm:block">
+          <span className="text-xl font-bold font-mono tracking-tighter text-slate-900">
             Arthony<span className="text-[#FF6F3C]">.</span>
           </span>
         </Link>
@@ -61,66 +61,66 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Side Drawer */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop */}
+            {/* Backdrop (Lighter, doesn't block interaction if we want to allow scrolling, 
+                but typically side drawers have backdrops. I'll make it transparent to allow context visibility) */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-40 md:hidden"
+              className="fixed inset-0 bg-slate-900/10 backdrop-blur-[2px] z-40 md:hidden"
             />
             
-            {/* Menu Drawer */}
+            {/* Sidebar Drawer */}
             <motion.div
-              initial={{ opacity: 0, y: -20, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              className="absolute top-24 inset-x-6 z-50 md:hidden overflow-hidden"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-white z-50 md:hidden shadow-2xl border-l border-slate-100 flex flex-col pt-32 p-8"
             >
-              <div className="bg-white rounded-[2.5rem] border border-slate-200 shadow-2xl p-8 flex flex-col gap-8">
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-6">
                   {navLinks.map((item) => (
                     <Link 
                       key={item.name} 
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="text-2xl font-bold text-slate-900 hover:text-[#FF6F3C] transition-colors"
+                      className="text-3xl font-black text-slate-900 hover:text-[#FF6F3C] transition-colors"
                     >
                       {item.name}
                     </Link>
                   ))}
                 </div>
 
-                <div className="h-px bg-slate-100" />
+                <div className="mt-12 h-px bg-slate-100" />
 
-                <div className="flex flex-col gap-6">
+                <div className="mt-auto pb-12">
                   <a 
                     href="/resume.pdf"
-                    className="flex lg:hidden items-center justify-center gap-2 px-6 py-4 bg-[#FF6F3C] text-white font-bold rounded-2xl hover:bg-[#e65100] transition-all"
+                    className="flex items-center justify-center gap-2 px-6 py-4 bg-[#FF6F3C] text-white font-bold rounded-2xl hover:bg-[#e65100] transition-all mb-8 shadow-lg shadow-orange-500/20"
                   >
                     <span>View Resume</span>
                     <Download size={18} />
                   </a>
 
                   <div className="flex justify-between items-center">
-                    <div className="flex gap-4">
-                      <a href="https://github.com/ak47gt18" target="_blank" className="text-slate-400 hover:text-slate-900 transition-colors">
-                        <Github size={20} />
+                    <div className="flex gap-6">
+                      <a href="https://github.com/ak47gt18" target="_blank" className="text-slate-400 hover:text-[#FF6F3C] transition-colors">
+                        <Github size={24} />
                       </a>
-                      <a href="https://instagram.com/arthony47" target="_blank" className="text-slate-400 hover:text-slate-900 transition-colors">
-                        <Instagram size={20} />
+                      <a href="https://instagram.com/arthony47" target="_blank" className="text-slate-400 hover:text-[#FF6F3C] transition-colors">
+                        <Instagram size={24} />
                       </a>
-                    </div>
-                    <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                      Arthony Kanjira
                     </div>
                   </div>
+                  <div className="mt-6 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                    Arthony Kanjira Portfolio
+                  </div>
                 </div>
-              </div>
             </motion.div>
           </>
         )}
